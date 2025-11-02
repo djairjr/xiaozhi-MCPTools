@@ -133,7 +133,7 @@ def 计算器(python_expression: str) -> dict:
 
 # 定义工具函数：运行电脑端程序
 @mcp.tool()
-def 运行电脑端软件文件或程序(program_name: str) -> dict:
+def 运行电脑端预设软件文件或程序(program_name: str) -> dict:
     """
     运行预设程序或指定路径的程序
     参数： program_name: 程序名称或路径，例如 "记事本" 或 "C:\\Windows\\System32\\notepad.exe"
@@ -685,8 +685,12 @@ if 允许使用微信发消息工具:
 
         """
         向微信指定联系人发送指定文件
+        以打开微信的方式显示微信窗口，搜索联系人显示联系人对话框，输入内容后直接回车发送
+        因为是完全自动化指令，没有任何空隙，内容发错可能会有影响
+        一定要向用户确认要发送的联系人和内容！
+
         参数：
-            文件路径：（要发送的文件完整路径）如：C:\Windows\explorer.exe
+            文件路径：（要发送的文件完整路径）如：C:\\Windows\\explorer.exe
             微信联系人：（文件发送的目标联系人）
         """
         try:
@@ -730,7 +734,6 @@ if 允许使用微信发消息工具:
             # 模拟 按下 Enter 操作 选中进入联系人对话框
             pyautogui.hotkey('Enter')
             #准备发送文件
-
             abspath = os.path.abspath(文件路径)
             # 启动 explorer，但不捕获输出
             subprocess.Popen(['explorer', '/select,', abspath], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -741,17 +744,14 @@ if 允许使用微信发消息工具:
             [void]$wshell.AppActivate((Get-Process explorer | Where-Object {{$_.MainWindowTitle -like "*{folder_name}*"}}).MainWindowTitle)
             '''
             subprocess.Popen(['powershell', '-NoProfile', '-Command', ps], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
+            
             time.sleep(3.6)
-
             pyautogui.hotkey('ctrl', 'c')
             # 等待
             time.sleep(0.5)
             pyautogui.hotkey('alt', 'f4')
-
             # 等待
             time.sleep(1.5)
-
             # 模拟 Ctrl+V 操作 粘贴要搜索的联系人
             pyautogui.hotkey('Ctrl', 'v')
             # 等待
@@ -759,13 +759,11 @@ if 允许使用微信发消息工具:
             # 模拟 按下 Enter 操作   发送内容
             pyautogui.hotkey('Enter')
 
-
             logger.info(f"\n\n已尝试向：{微信联系人}\n发送了文件：{文件路径} ！\n")
             return {"是否成功": True, "结果": f"已尝试向联系人：{微信联系人}\n发送了文件：{文件路径}"}
         except Exception as e:
             logger.error(f"\n\n错误！运行失败！: {str(e)}  可能未添加微信路径预设！\n")
             return {"是否成功": False, "错误！运行失败！ 可能未添加微信路径预设！": str(e)}
-
 
 # -------------------------------------------------------------------------------------------------
 
@@ -933,6 +931,41 @@ def 更换桌面壁纸(content: str) -> dict:
 
 
 # -------------------------------------------------------------------------------------------------
+
+
+
+# 定义工具函数：运行电脑端程序
+@mcp.tool()
+def 自动搜索并打开软件程序(软件名称: str) -> dict:
+    """
+    自动在开始菜单中搜索程序名称并启动，无需提前预设，是推荐的选择！
+    在win11环境下，测试无误！
+    """
+    try:
+
+        #模拟 Win 显示开始页面
+        pyautogui.press('winleft')
+        # 等待
+        time.sleep(0.6)
+        # 复制要搜索的软件名称到剪贴板
+        pyperclip.copy(软件名称)
+        # 等待0.1秒
+        time.sleep(0.1)
+        # 模拟 Ctrl+V 操作 粘贴要搜索的软件名称
+        pyautogui.hotkey('Ctrl', 'v')
+        # 等待1.6秒
+        time.sleep(1.6)
+        # 模拟 按下 Enter 操作 运行软件！
+        pyautogui.hotkey('Enter')
+
+        logger.info(f"\n\n以尝试自动搜索并运行程序：{软件名称}\n")
+        return {"是否成功": True, "结果": f"以尝试自动搜索并运行程序：{软件名称}"}
+    except Exception as e:
+        logger.error(f"\n\n错误！程序: {软件名称} 运行失败！: {str(e)}\n")
+        return {"是否成功": False, "错误请检查路径": str(e)}
+
+# -------------------------------------------------------------------------------------------------
+
 
 
 
@@ -1773,6 +1806,116 @@ def 查询实时公交(city: str, site: str, backward: int = 0) -> dict:
 
 
 
+# 定义工具函数：运行电脑端程序
+@mcp.tool()
+def 自动搜索并打开软件程序(软件名称: str) -> dict:
+    """
+    自动在开始菜单中搜索程序名称并启动，无需提前预设，是推荐的选择！
+    在win11环境下，测试无误！
+    """
+    try:
+
+        #模拟 Win 显示开始页面
+        pyautogui.press('winleft')
+        # 等待
+        time.sleep(0.6)
+        # 复制要搜索的软件名称到剪贴板
+        pyperclip.copy(软件名称)
+        # 等待0.1秒
+        time.sleep(0.1)
+        # 模拟 Ctrl+V 操作 粘贴要搜索的软件名称
+        pyautogui.hotkey('Ctrl', 'v')
+        # 等待1.6秒
+        time.sleep(1.6)
+        # 模拟 按下 Enter 操作 运行软件！
+        pyautogui.hotkey('Enter')
+
+        logger.info(f"\n\n以尝试自动搜索并运行程序：{软件名称}\n")
+        return {"是否成功": True, "结果": f"以尝试自动搜索并运行程序：{软件名称}"}
+    except Exception as e:
+        logger.error(f"\n\n错误！程序: {软件名称} 运行失败！: {str(e)}\n")
+        return {"是否成功": False, "错误请检查路径": str(e)}
+
+# -------------------------------------------------------------------------------------------------
+
+
+#以下为操控第三方Ai工具
+
+
+# -------------------------------------------------------------------------------------------------
+
+
+
+# 定义工具函数：运行电脑端程序
+@mcp.tool()
+def 让豆包Ai做某事(任务内容: str) -> dict:
+    """
+    自动跳转在浏览器打开豆包网页，并搜索内容！
+    将用户的需求直接完整填入任务内容中，给 Ai
+    """
+    try:
+
+        url = "https://www.doubao.com/chat/"
+
+        webbrowser.open(url)
+        # 等待
+        time.sleep(5)
+        # 复制要搜索的软件名称到剪贴板
+        pyperclip.copy(任务内容)
+        # 等待0.1秒
+        time.sleep(0.1)
+        # 模拟 Ctrl+V 操作 粘贴要搜索的软件名称
+        pyautogui.hotkey('Ctrl', 'v')
+        # 等待
+        time.sleep(0.6)
+        # 模拟 按下 Enter 操作 运行软件！
+        pyautogui.hotkey('Enter')
+
+        logger.info(f"\n\n以尝试让豆包去回答：{任务内容}\n")
+        return {"是否成功": True, "结果": f"以尝试让豆包去回答：{任务内容}"}
+    except Exception as e:
+        logger.error(f"\n\n错误！: {任务内容} 运行失败！: {str(e)}\n")
+        return {"是否成功": False, "错误请检查路径": str(e)}
+
+# -------------------------------------------------------------------------------------------------
+
+
+
+# 定义工具函数：运行电脑端程序
+@mcp.tool()
+def 让KimiAi做某事(任务内容: str) -> dict:
+    """
+    自动跳转在浏览器打开Kimi网页，并发布内容！
+    将用户的需求直接完整填入任务内容中，给 Ai
+    """
+    try:
+
+        url = "https://www.kimi.com/zh/"
+
+        webbrowser.open(url)
+        # 等待
+        time.sleep(3.6)
+        # 复制要搜索的软件名称到剪贴板
+        pyperclip.copy(任务内容)
+        # 等待0.1秒
+        time.sleep(0.1)
+        # 模拟 Ctrl+V 操作 粘贴要搜索的软件名称
+        pyautogui.hotkey('Ctrl', 'v')
+        # 等待
+        time.sleep(0.6)
+        # 模拟 按下 Enter 操作 运行软件！
+        pyautogui.hotkey('Enter')
+
+        logger.info(f"\n\n以尝试让Kimi去回答：{任务内容}\n")
+        return {"是否成功": True, "结果": f"以尝试让Kimi去回答：{任务内容}"}
+    except Exception as e:
+        logger.error(f"\n\n错误！: {任务内容} 运行失败！: {str(e)}\n")
+        return {"是否成功": False, "错误请检查路径": str(e)}
+
+# -------------------------------------------------------------------------------------------------
+
+
+
 #以下为PPT控制工具
 
 
@@ -2429,7 +2572,10 @@ def 接收巴法消息(要接收的主题: str) -> dict:
     "21.PPT_结束放映",
     "22.PPT_从当页开始放映",
     "23.PPT_从头放映",
-    "24.在文档上查找内容"
+    "24.在文档上查找内容",
+    "25.自动搜索并打开软件程序",
+    "26.让豆包Ai做某事",
+    "27.让KimiAi做某事"
 
 ]
 
@@ -2467,9 +2613,9 @@ API功能 = [
 
 # 动态插入工具功能到第一部分
 if 允许使用微信发消息工具:
-    控制电脑功能.append("25.向微信指定联系人发送内容")
-    控制电脑功能.append("26.向微信联系人发送指定文件")
-    控制电脑功能.append("27.向微信指定联系人发送复制的内容")
+    控制电脑功能.append("28.向微信指定联系人发送内容")
+    控制电脑功能.append("29.向微信联系人发送指定文件")
+    控制电脑功能.append("30.向微信指定联系人发送复制的内容")
 
 # 动态插入工具功能
 if 是作者工作环境:
@@ -2506,7 +2652,7 @@ else:
 # 主程序入口
 if __name__ == "__main__":
     logger.info("\n\n\tMCP_Windows服务已启动！等待调用！\n\n当前支持的控制电脑工具：\n" + "\n".join(功能内容) + "\n\n快尝试小智的能力吧！\n")
-    logger.info("\n\n\t\b版本：v58.93.62 (2025-10-18 更新)\n\t\tBy[粽子同学]\n\n")
+    logger.info("\n\n\t\b版本：v61.53.12 (2025-11-02 更新)\n\t\tBy[粽子同学]\n\n")
     mcp.run(transport="stdio")
 # -------------------------------------------------------------------------------------------------
 

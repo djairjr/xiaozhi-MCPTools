@@ -25,18 +25,17 @@ if os.path.exists(血继限界权所有):
     
     topic = "MCPToolsAK0"  # 定义主题
 
-if os.path.exists(XYZ电子实验室版权所有):
+elif os.path.exists(XYZ电子实验室版权所有):
     
     topic = "MCPToolsAK3"  # 定义主题
 
-if os.path.exists(Teng版权所有):
+elif os.path.exists(Teng版权所有):
     
     topic = "MCPToolsAK2"  # 定义主题
 
-if os.path.exists(momocore版权所有):
+elif os.path.exists(momocore版权所有):
     
     topic = "MCPToolsAK4"  # 定义主题
-
 
 else:
 
