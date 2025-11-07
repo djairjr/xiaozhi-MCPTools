@@ -1,112 +1,91 @@
-# 一个图形化界面的 小智MCP连接器 
+Uma interface gráfica para o conector Xiaozhi MCP.
+Introdução
+Esta é uma ferramenta de projeto com a qual um estudante de 15,9 anos chamado Zongzi fez alguns testes.
 
-## 简介
+O projeto que desenvolvi pode não ter sido muito padronizado ou bem executado. Peço desculpas!
+O objetivo deste projeto é ajudar todos a implantar de forma rápida e fácil as ferramentas e os serviços do protocolo MCP da Xiaozhi Ai.
 
-**这是一个由 15.9岁的粽子同学 瞎搞的项目工具**
+Se tiver alguma opinião ou sugestão, junte-se ao nosso grupo no QQ: 1036585294 ou entre em contato diretamente com o autor pelo WeChat: AWHLXXH.
 
-#### 开发的项目可能不太规范，弄得也不是很好，抱歉！
+Esta ferramenta utiliza principalmente Python para estabelecer conexões. Sua interface gráfica, desenvolvida em VB6, é bastante rudimentar. Arquivos .bat auxiliam na inicialização e implantação.
 
-希望通过这个项目工具，能够帮助大家快速方便的部署小智Ai的MCP协议的工具服务
+Dica
 
-如果你有任何想法或建议，可加入 QQ 群：**1036585294**
-或者直接联系作者微信：**AWHLXXH**
+Você pode clicar no link para visualizar o tutorial de integração do Lark Smart MCP e a documentação da ferramenta para saber mais.
+Ambiente de utilização
+Recomenda-se o sistema operacional Windows 10 ou posterior .
+Requer Python versão 3.10 ou superior.
+Vídeo de demonstração
+👉Tutorial de Instalação de Software (Leitura Obrigatória) [TikTok]
 
-本工具以Python作为主要的建立连接，图形界面由VB6设计比较简陋，bat文件辅助启动与部署
+👉A IA Xiaozhi controla o computador do dono [TikTok]
 
-> [!TIP]
->
-> #### 您可以点击链接查看飞书 [小智接入 MCP 教程与工具 文档](https://kcn80f4hacgs.feishu.cn/wiki/RTaHwEOp8iu6ACkXbrNcJ4GMnVg) 了解更多。
+Funcionalidades implementadas:
+Controlar o computador
+1. Execute o programa de computador usando o software padrão ou um caminho específico.
+2. Abra o URL (nome da página web ou endereço URL específico) no seu computador.
+3. Execute comandos CMD (comandos predefinidos ou comandos específicos) no seu computador.
+4. Exemplo de calculadora oficial
+5. Crie um arquivo e escreva o conteúdo.
+6. Leia o conteúdo copiado
+7. Preencha o espaço em branco com o seguinte conteúdo.
+8. Pressione Enter para enviar
+9. Cancelar operação
+10. Bloqueie o computador
+11. Cronograma de desligamento do computador
+12. Ajuste o volume do computador
+13. Utilize a ferramenta de captura de tela do sistema.
+14. Exibir área de trabalho
+15. Verifique o uso de recursos do sistema.
+16. Visualizar informações de configuração do computador e obter o caminho completo da área de trabalho.
+17. Defina o tema de cores claro e escuro do sistema Windows.
+18. Enviar conteúdo para um contato designado no WeChat
+19. Alterar o papel de parede da área de trabalho
+Ferramentas de API aberta
+1. Obter lugares-comuns inspiradores, mas que, em última análise, são prejudiciais.
+2. Veja os assuntos mais comentados no Douyin
+3. Obtenha uma cotação aleatória
+4. Obtenha o "diário do otário"
+5. Consulte seu horóscopo
+6. Adivinhação por sorteio
+7. Acompanhe os assuntos mais comentados em tempo real no Baidu, Zhihu e Weibo.
+8. Obtenha citações famosas
+9. Obtenha uma cotação diária
+10. Obtenha trava-línguas
+11. Verifique os preços dos combustíveis
+12. Receba cumprimentos de Ano Novo
+13. Confira os números de bilheteria dos filmes de hoje.
+14. Obtenha enigmas
+15. Notícias diárias da manhã
+16. O que comer hoje?
+17. Pesquisar na Enciclopédia Baidu
+18. Acesse Hoje na História
+19. Obtenha o calendário perpétuo.
+20. Obtenha o Índice Composto de Shenzhen.
+21. Verifique as cotações individuais das ações
+22. Analise os fundamentos da empresa.
+23. Confira os bilhetes de trem de alta velocidade
+24. Obtenha a Caverna do Eco
+25. Divulgando notícias da Baffa
+Ferramenta ALAPI
+Importante
 
+Você precisa se cadastrar neste site primeiro para obter um token de solicitação.
+As instruções detalhadas de ativação estão pendentes de conclusão.
 
-#### 使用环境
-
-- 推荐**Windows10及以上** 操作系统
-- 需要**Python版本不小于3.10**
-
-
-## 演示视频
-
-👉 [软件安装教程（必看）【抖音】](https://v.douyin.com/slJLweHvgs8/)
-
-👉 [小智Ai 操控主人电脑【抖音】](https://v.douyin.com/QJAQ4tRSSt4/)
-
-
-
-
-## 已实现功能：
-
-### 控制电脑
-
-- 1.运行电脑端程序 预设软件 或 具体路径
-- 2.在电脑上打开URL网址 网页名 或 具体URL网址
-- 3.在电脑上运行CMD指令 预设指令 或 具体指令
-- 4.官方的计算器示例
-- 5.创建文件写入内容
-- 6.读取复制内容
-- 7.填入一段内容
-- 8.回车发送
-- 9.撤销操作
-- 10.锁定电脑
-- 11.电脑关机计划
-- 12.设置电脑音量
-- 13.调用系统截图工具
-- 14.显示桌面
-- 15.查看系统资源使用情况
-- 16.查看电脑配置信息 & 获取桌面完整路径
-- 17.设置Windows系统深浅色主题
-- 18.向微信指定联系人发送内容
-- 19.更换桌面壁纸
-
-###  开放API 工具
-
-- 1.获取心灵毒鸡汤
-- 2.获取抖音热点
-- 3.获取随机一言
-- 4.获取舔狗日记
-- 5.获取星座运势
-- 6.运势抽签
-- 7.获取百度知乎微博实时热榜
-- 8.获取名人名言
-- 9.获取每日一句
-- 10.获取绕口令
-- 11.查询油价
-- 12.获取新年祝福语
-- 13.获取今日电影票房
-- 14.获取脑筋急转弯
-- 15.每日早报
-- 16.今天吃什么
-- 17.搜索百度百科
-- 18.获取历史上的今天
-- 19.获取万年历
-- 20.获取深证成指
-- 21.查询个股行情
-- 22.查询公司基本面
-- 23.查询高铁票
-- 24.获取回声洞
-- 25.推送巴法消息
-
-### ALAPI 工具
-
-> [!IMPORTANT]
->#### **您需要先 [注册此网站](https://www.alapi.cn/) 获取请求Token**
-> 
-> ***详细启用教程请等待完善***
-
- - 1.获取心灵毒鸡汤
- - 2.获取早报
- - 3.获取舔狗日记
- - 4.获取一言
- - 5.获取土味情话
- - 6.获取笑话大全
- - 7.获取油价查询
- - 8.查询快递 V1
- - 9.查询快递 V2
- - 10.获取星座运势
- - 11.获取节假日查询
-
-
-### 控制洛雪音乐软件 工具
- - 1.洛雪音乐_搜索并播放音
- - 2.洛雪音乐_暂停或继续播放音乐
- - 3.洛雪音乐_下一首音乐
- - 4.洛雪音乐_上一首音乐
+1. Obter lugares-comuns inspiradores, mas que, em última análise, são prejudiciais.
+2. Receba as notícias da manhã.
+3. Obtenha o "diário do otário"
+4. Obtenha uma palavra
+5. Use cantadas bregas
+6. Obtenha uma coleção completa de piadas.
+7. Obtenha informações sobre o preço do combustível
+8. Rastreamento de Entrega Expressa V1
+9. Rastreamento de Entrega Expressa V2
+10. Consulte seu horóscopo
+11. Consultar calendário de feriados
+Controle as ferramentas de software de música Luo Xue
+1. Luo Xue Music - Pesquise e reproduza áudio.
+2. Música Luo Xue - Pausar ou retomar a reprodução de música
+3. Música de Luo Xue - Próxima Música
+4. Música de Luo Xue - Música Anterior
